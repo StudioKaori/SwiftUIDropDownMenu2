@@ -10,16 +10,19 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         ScrollView {
-					DropDown()
-					DropDown()
-					DropDown()
-					DropDown()
-					DropDown()
-					DropDown()
-					DropDown()
-					DropDown()
-					DropDown()
-					DropDown()
+					VStack {
+						DropDown()
+						DropDown()
+						DropDown()
+						DropDown()
+						DropDown()
+						DropDown()
+						DropDown()
+						DropDown()
+						DropDown()
+						DropDown()
+					}
+					.frame(width: UIScreen.main.bounds.width)
 				}
     }
 }
@@ -33,9 +36,13 @@ struct ContentView_Previews: PreviewProvider {
 struct DropDown: View {
 	
 	@State var expand = false
+	//@State private var viewSize = CGSize()
 	
 	var body: some View {
-		VStack {
+		VStack(alignment: .leading) {
+			
+			Color.clear
+			
 			HStack {
 				Text("Expand")
 					.fontWeight(.light)
@@ -75,9 +82,23 @@ struct DropDown: View {
 			}
 		}
 		.padding()
-		.frame(width: UIScreen.main.bounds.width, alignment: .leading)
 		.background(LinearGradient(gradient: .init(colors: [.red, .orange]), startPoint: .top, endPoint: .bottom))
 		//.cornerRadius(20)
-		.animation(.easeOut)
+//		.background() {
+//			GeometryReader { geometry in
+//				Path { path in
+//					let size = geometry.size
+//					print(size)
+//					DispatchQueue.main.async {
+//						if self.viewSize != size {
+//							self.viewSize = size
+//
+//						}
+//					}
+//				}
+//			}
+//		}
+		//.frame(alignment: .leading)
+		.animation(.easeInOut)
 	}
 }
