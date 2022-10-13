@@ -40,7 +40,7 @@ struct DropDown: View {
 				Text("Expand")
 					.fontWeight(.light)
 				
-				Image(systemName: "chevron.down")
+				Image(systemName: expand ? "chevron.up" : "chevron.down")
 					.resizable()
 					.frame(width: 10, height: 10)
 			}
