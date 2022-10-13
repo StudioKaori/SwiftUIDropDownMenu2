@@ -15,6 +15,10 @@ struct DropDown: View {
 	var body: some View {
 		VStack(alignment: .leading) {
 			
+			// To make the width full, add color.clear
+			Color.clear
+				.frame(height: 0)
+			
 			HStack {
 				Text("Expand")
 					.fontWeight(.light)
@@ -52,8 +56,7 @@ struct DropDown: View {
 				})
 				.foregroundColor(.black)
 			}
-			
-			Color.clear
+		
 		}
 		.padding()
 		.background(LinearGradient(gradient: .init(colors: [.red, .orange]), startPoint: .top, endPoint: .bottom))
