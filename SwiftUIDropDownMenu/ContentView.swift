@@ -75,7 +75,7 @@ struct DropDown: View {
 			}
 		}
 		.padding()
-		.frame(width: UIScreen.main.bounds.width)
+		.frame(width: UIScreen.main.bounds.width, alignment: .leading)
 		.background(LinearGradient(gradient: .init(colors: [.red, .orange]), startPoint: .top, endPoint: .bottom))
 		//.cornerRadius(20)
 		.animation(.easeOut)
