@@ -9,14 +9,18 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            
+        ScrollView {
 					DropDown()
-        }
-        .padding()
+					DropDown()
+					DropDown()
+					DropDown()
+					DropDown()
+					DropDown()
+					DropDown()
+					DropDown()
+					DropDown()
+					DropDown()
+				}
     }
 }
 
@@ -71,8 +75,9 @@ struct DropDown: View {
 			}
 		}
 		.padding()
+		.frame(width: UIScreen.main.bounds.width)
 		.background(LinearGradient(gradient: .init(colors: [.red, .orange]), startPoint: .top, endPoint: .bottom))
-		.cornerRadius(20)
-		.animation(.spring())
+		//.cornerRadius(20)
+		.animation(.easeOut)
 	}
 }
