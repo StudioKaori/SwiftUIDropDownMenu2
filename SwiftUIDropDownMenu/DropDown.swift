@@ -9,7 +9,8 @@ import SwiftUI
 
 struct DropDown: View {
 	
-	@State var expand = false
+	@ObservedObject var viewModel: ViewModel
+	let myViewId: String
 	//@State private var viewSize = CGSize()
 	
 	var body: some View {
@@ -23,15 +24,23 @@ struct DropDown: View {
 				Text("Expand")
 					.fontWeight(.light)
 				
-				Image(systemName: expand ? "chevron.up" : "chevron.down")
+				Image(systemName: viewModel.focusedFilterId == self.myViewId ? "chevron.up" : "chevron.down")
 					.resizable()
 					.frame(width: 10, height: 10)
 			}
 			.onTapGesture {
-				self.expand.toggle()
+				
+				if viewModel.focusedFilterId == self.myViewId {
+					print("if 01 \(viewModel.focusedFilterId)")
+					viewModel.focusedFilterId = ""
+				} else if viewModel.focusedFilterId != self.myViewId {
+					print("if else 02 \(viewModel.focusedFilterId)")
+					viewModel.focusedFilterId = self.myViewId
+				}
+				
 			}
 			
-			if expand {
+			if viewModel.focusedFilterId == self.myViewId {
 				Button(action: {
 					
 				}, label: {
@@ -83,6 +92,6 @@ struct DropDown: View {
 
 struct DropDown_Previews: PreviewProvider {
     static var previews: some View {
-        DropDown()
+			DropDown(viewModel: ViewModel(), myViewId: "option1")
     }
 }
